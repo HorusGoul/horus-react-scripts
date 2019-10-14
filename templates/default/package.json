@@ -1,0 +1,31 @@
+{
+  "name": "{{appName}}",
+  "description": "",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "start": "{{scriptsName}} dev",
+    "build": "{{scriptsName}} build"
+  },
+  "dependencies": {
+    "{{scriptsName}}": "{{scriptsVersion}}",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "@babel/polyfill": "^7.6.0",
+    "sass-mq": "^5.0.0",
+    "minireset.css": "^0.0.5"
+  },
+  "devDependencies": {
+    "@types/webpack": "^4.39.3",
+    "@types/react": "^16.9.6",
+    "@types/react-dom": "^16.9.2",
+    "@typescript-eslint/eslint-plugin": "^2.4.0",
+    "@typescript-eslint/parser": "^2.4.0",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.1.2",
+    "prettier": "^1.18.2"
+  }
+}

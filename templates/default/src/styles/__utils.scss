@@ -1,0 +1,11 @@
+.visuallyHidden {
+  border: 0;
+  clip: rect(0px 0px 0px 0px); /* IE6, IE7 */
+  clip: rect(0px, 0px, 0px, 0px);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  position: absolute;
+}

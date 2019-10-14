@@ -41,14 +41,16 @@ export default function createStyleRule(env = 'dev') {
       {
         loader: 'sass-loader',
         options: {
-          data: `
+          prependData: `
             @import '${context}/styles/variables.scss';
             @import '${context}/styles/functions.scss';
             @import '${context}/styles/responsive.scss';
             @import '${context}/styles/transitions.scss';
           `,
-          includePaths: ['./ui'],
           sourceMap,
+          sassOptions: {
+            includePaths: ['./ui', './components'],
+          },
         },
       },
     ],

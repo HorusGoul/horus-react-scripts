@@ -1,0 +1,6 @@
+// =============================================================================
+// Get z-index value from the z-Indexes map on _variables file
+// =============================================================================
+@function z($element) {
+  @return map-get($zIndices, $element);
+}

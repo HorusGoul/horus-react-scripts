@@ -1,0 +1,28 @@
+@import 'reset';
+@import 'variables';
+@import 'functions';
+@import 'responsive';
+@import 'transitions';
+@import 'utils';
+
+:root {
+  --primary: #{$primary};
+}
+
+html,
+body,
+[id='root'] {
+  height: 100%;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  background-color: transparent !important;
+  -webkit-transition-delay: 99999s;
+  transition-delay: 99999s;
+}
