@@ -1,3 +1,3 @@
 import { resolve } from "path";
 
-export const projectDir = resolve(__dirname, "..");
+export const projectDir = resolve(process.cwd());

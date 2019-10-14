@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 const spawn = require("cross-spawn");
+const { resolve } = require("path");
 
 const [task] = process.argv.slice(2);
-const webpackConfig = require.resolve(`../config/webpack.config.babel.js`);
+const webpackConfig = resolve(__dirname, `../config/webpack.config.entry.js`);
 
 let result;
 

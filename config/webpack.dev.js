@@ -1,7 +1,7 @@
 import webpack from "webpack";
 import commonConfig from "./webpack.common";
 import createStyleRule from "./style-rule";
-import babelOptions from "./babel-options";
+import babelOptions from "./babel.config";
 
 const PORT = parseInt(process.env.PORT, 10) || 3000;
 

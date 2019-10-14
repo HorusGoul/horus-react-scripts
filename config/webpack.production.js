@@ -7,7 +7,7 @@ import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import TerserPlugin from "terser-webpack-plugin";
 import { resolve } from "path";
-import babelOptions from "./babel-options";
+import babelOptions from "./babel.config";
 
 const context = commonConfig.context;
 const hashDigestLength = 8;
