@@ -40,6 +40,7 @@ switch (task) {
       'copy-dir',
       'copy-template-dir',
       'cross-spawn',
+      'command-exists',
     ];
 
     scriptsDependencies.forEach(dep => {

@@ -7,9 +7,12 @@ process.on('unhandledRejection', err => {
 const copy = require('copy-template-dir');
 const { resolve } = require('path');
 const spawn = require('cross-spawn');
+const commandExists = require('command-exists');
 
 const templatesPath = resolve(__dirname, '../templates');
 const packageJson = require(resolve(__dirname, '../package.json'));
+
+const scriptsPath = resolve(process.env.HORUS_RS_LOCATION);
 
 module.exports = async function(
   appPath,
@@ -27,19 +30,36 @@ module.exports = async function(
       {
         appName,
         scriptsName: packageJson.name,
-        scriptsVersion: 'file:../',
+        scriptsVersion: scriptsPath
+          ? `file:${scriptsPath}`
+          : `^${packageJson.version}`,
       },
       (err, createdFiles) => (err ? onReject(err) : onResolve(createdFiles)),
     ),
   );
 
-  const result = spawn.sync('yarn', ['--cwd', appPath], {
-    stdio: 'inherit',
-  });
+  if (commandExists.sync('git')) {
+    spawn.sync('git', ['init', appPath], {
+      stdio: 'inherit',
+    });
 
-  if (result.signal) {
-    process.exit(1);
+    // Install husky git hooks
+    spawn.sync(
+      'node',
+      [resolve(appPath, 'node_modules', 'husky', 'husky.js'), 'install'],
+      {
+        cwd: appPath,
+        stdio: 'inherit',
+      },
+    );
   }
 
-  process.exit(result.status);
+  if (scriptsPath) {
+    spawn.sync('yarn', ['link', packageJson.name], {
+      cwd: appPath,
+      stdio: 'ignore',
+    });
+  }
+
+  process.exit(0);
 };
