@@ -17,12 +17,6 @@
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-member-accessibility": "off",
     "@typescript-eslint/camelcase": "off",
-    "@typescript-eslint/no-object-literal-type-assertion": [
-      "error",
-      {
-        "allowAsParameter": true
-      }
-    ],
     "react/prop-types": "off",
     "react/display-name": "off",
     "react/no-find-dom-node": "warn",
@@ -35,7 +29,7 @@
     "prettier/prettier": "warn"
   },
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": ["./tsconfig.json", "./src/workers/tsconfig.json"]
   },
   "settings": {
     "react": {

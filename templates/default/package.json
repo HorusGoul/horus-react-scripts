@@ -6,7 +6,26 @@
   "scripts": {
     "start": "{{scriptsName}} dev",
     "build": "{{scriptsName}} build",
-    "eject": "{{scriptsName}} eject"
+    "eject": "{{scriptsName}} eject",
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "prelint:fix": "prettier --write src/**/*.{ts,tsx,js,json,scss,mdx}",
+    "lint:fix": "eslint --fix src/**/*.{ts,tsx}",
+    "typecheck": "tsc --noEmit"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm run typecheck"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "src/**/*.{ts,tsx,js,json,scss,mdx}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "browserslist": [
     "last 2 version",
@@ -17,18 +36,5 @@
     "{{scriptsName}}": "{{scriptsVersion}}",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
-  },
-  "devDependencies": {
-    "@types/webpack": "^4.39.3",
-    "@types/react": "^16.9.6",
-    "@types/react-dom": "^16.9.2",
-    "@typescript-eslint/eslint-plugin": "^2.4.0",
-    "@typescript-eslint/parser": "^2.4.0",
-    "eslint": "^6.5.1",
-    "eslint-config-prettier": "^6.4.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react": "^7.16.0",
-    "eslint-plugin-react-hooks": "^2.1.2",
-    "prettier": "^1.18.2"
   }
 }
