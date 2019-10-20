@@ -23,7 +23,11 @@ export default function createStyleRule(env = 'dev') {
         loader: 'css-loader',
         options: {
           sourceMap,
-          modules: true,
+          modules: {
+            mode: 'local',
+            localIdentName:
+              env === 'dev' ? '[local]__[hash:base64]' : '[hash:base64]',
+          },
           localsConvention: 'camelCase',
         },
       },
