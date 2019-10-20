@@ -3,6 +3,8 @@ const spawn = require('cross-spawn');
 const { resolve } = require('path');
 const fs = require('fs');
 const copyDir = require('copy-dir');
+const dotenvConfig = require('dotenv');
+dotenvConfig.config();
 
 const [task] = process.argv.slice(2);
 

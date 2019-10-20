@@ -9,7 +9,7 @@ import TerserPlugin from 'terser-webpack-plugin';
 import { resolve } from 'path';
 import babelOptions from './babel.config';
 import WorkboxPlugin from 'workbox-webpack-plugin';
-import { projectDir } from './common';
+import { getReactAppVars } from './env';
 
 const context = commonConfig.context;
 const hashDigestLength = 8;
@@ -84,6 +84,7 @@ export default {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
+        ...getReactAppVars(),
       },
     }),
     new ChunkHashPlugin({ algorithm: 'md5' }),

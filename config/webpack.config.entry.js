@@ -1,8 +1,11 @@
-const config = require("./babel.config");
+const dotenvConfig = require('dotenv');
+dotenvConfig.config();
 
-require("@babel/register")({
+const config = require('./babel.config');
+
+require('@babel/register')({
   ...config,
-  ignore: [/\/node_modules\/(?!horus-react-scripts)/]
+  ignore: [/\/node_modules\/(?!horus-react-scripts)/],
 });
 
-module.exports = require("./webpack.config.babel");
+module.exports = require('./webpack.config.babel');
