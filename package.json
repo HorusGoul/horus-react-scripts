@@ -1,12 +1,21 @@
 {
   "name": "horus-react-scripts",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "React Scripts",
   "author": "Horus Lugo <horusgoul@gmail.com>",
   "license": "MIT",
   "private": false,
   "bin": {
     "horus-react-scripts": "./bin/index.js"
+  },
+  "files": [
+    "bin",
+    "config",
+    "scripts",
+    "templates"
+  ],
+  "bugs": {
+    "url": "https://github.com/HorusGoul/horus-react-scripts/issues"
   },
   "scripts": {
     "precreate-test-app": "cross-env HORUS_RS_LOCATION=./",
