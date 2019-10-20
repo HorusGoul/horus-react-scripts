@@ -1,56 +1,58 @@
-import webpack from "webpack";
-import commonConfig from "./webpack.common";
-import createStyleRule from "./style-rule";
-import ChunkHashPlugin from "webpack-chunk-hash";
-import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
-import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import TerserPlugin from "terser-webpack-plugin";
-import { resolve } from "path";
-import babelOptions from "./babel.config";
+import webpack from 'webpack';
+import commonConfig from './webpack.common';
+import createStyleRule from './style-rule';
+import ChunkHashPlugin from 'webpack-chunk-hash';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
+import { resolve } from 'path';
+import babelOptions from './babel.config';
+import WorkboxPlugin from 'workbox-webpack-plugin';
+import { projectDir } from './common';
 
 const context = commonConfig.context;
 const hashDigestLength = 8;
 
 export default {
   output: {
-    filename: "[name].[contenthash].js",
-    chunkFilename: "[name].[chunkhash].js",
-    hashDigestLength
+    filename: '[name].[contenthash].js',
+    chunkFilename: '[name].[chunkhash].js',
+    hashDigestLength,
   },
 
-  stats: "errors-warnings",
+  stats: 'errors-warnings',
 
-  mode: "production",
+  mode: 'production',
 
-  devtool: "nosources-source-map",
+  devtool: 'nosources-source-map',
 
   module: {
     rules: [
-      createStyleRule("production"),
+      createStyleRule('production'),
       {
         test: /\.(j|t)sx?/,
         use: [
           {
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
               cacheDirectory: resolve(
                 context,
-                "../node_modules/.cache/webpack-babel-loader"
+                '../node_modules/.cache/webpack-babel-loader',
               ),
-              ...babelOptions
-            }
+              ...babelOptions,
+            },
           },
           {
-            loader: "ts-loader",
+            loader: 'ts-loader',
             options: {
-              transpileOnly: true
-            }
-          }
+              transpileOnly: true,
+            },
+          },
         ],
-        include: commonConfig.context
-      }
-    ]
+        include: commonConfig.context,
+      },
+    ],
   },
 
   optimization: {
@@ -59,41 +61,45 @@ export default {
       new TerserPlugin({
         parallel: true,
         sourceMap: true,
-        cache: resolve(context, "../node_modules/.cache/webpack-terser-cache"),
+        cache: resolve(context, '../node_modules/.cache/webpack-terser-cache'),
         terserOptions: {
           ie8: false,
           // eslint-disable-next-line @typescript-eslint/camelcase
-          keep_fnames: true
-        }
-      })
-    ]
+          keep_fnames: true,
+        },
+      }),
+    ],
   },
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
-      chunkFilename: "[id].[chunkhash].css",
-      allChunks: true
+      filename: '[name].[contenthash].css',
+      chunkFilename: '[id].[chunkhash].css',
+      allChunks: true,
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
-      debug: false
+      debug: false,
     }),
     new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: JSON.stringify("production")
-      }
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      },
     }),
-    new ChunkHashPlugin({ algorithm: "md5" }),
+    new ChunkHashPlugin({ algorithm: 'md5' }),
     new BundleAnalyzerPlugin({
-      analyzerMode: "static",
-      reportFilename: resolve(context, "../bundle-report.html"),
-      openAnalyzer: true
+      analyzerMode: 'static',
+      reportFilename: resolve(context, '../bundle-report.html'),
+      openAnalyzer: true,
     }),
     new ForkTsCheckerWebpackPlugin({
-      tsconfig: resolve(context, "../tsconfig.json"),
+      tsconfig: resolve(context, '../tsconfig.json'),
       workers: ForkTsCheckerWebpackPlugin.TWO_CPUS_FREE,
-      useTypescriptIncrementalApi: false
-    })
-  ]
+      useTypescriptIncrementalApi: false,
+    }),
+    new WorkboxPlugin.InjectManifest({
+      swSrc: resolve(context, './workers/service-worker.ts'),
+      swDest: resolve(commonConfig.output.path, './service-worker.js'),
+    }),
+  ],
 };

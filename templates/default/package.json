@@ -7,13 +7,15 @@
     "start": "{{scriptsName}} dev",
     "build": "{{scriptsName}} build"
   },
+  "browserslist": [
+    "last 2 version",
+    ">1%",
+    "not dead"
+  ],
   "dependencies": {
     "{{scriptsName}}": "{{scriptsVersion}}",
     "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "@babel/polyfill": "^7.6.0",
-    "sass-mq": "^5.0.0",
-    "minireset.css": "^0.0.5"
+    "react-dom": "^16.10.2"
   },
   "devDependencies": {
     "@types/webpack": "^4.39.3",

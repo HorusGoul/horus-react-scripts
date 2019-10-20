@@ -1,27 +1,27 @@
-import { resolve } from "path";
-import webpack from "webpack";
+import { resolve } from 'path';
+import webpack from 'webpack';
 
-import WebpackCleanupPlugin from "webpack-cleanup-plugin";
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import CopyWebpackPlugin from "copy-webpack-plugin";
-import { projectDir } from "./common";
+import WebpackCleanupPlugin from 'webpack-cleanup-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import { projectDir } from './common';
 
 export default {
-  context: resolve(projectDir, "src"),
+  context: resolve(projectDir, 'src'),
 
-  entry: ["@babel/polyfill", "./index.tsx"],
+  entry: ['./index.tsx'],
 
   output: {
-    path: resolve(projectDir, "build"),
-    publicPath: "/",
-    filename: "bundle.js"
+    path: resolve(projectDir, 'build'),
+    publicPath: '/',
+    filename: 'bundle.js',
   },
 
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".scss", ".css", ".html"],
+    extensions: ['.ts', '.tsx', '.js', '.scss', '.css', '.html'],
     alias: {
-      "@": resolve(projectDir, "src")
-    }
+      '@': resolve(projectDir, 'src'),
+    },
   },
 
   module: {
@@ -29,58 +29,58 @@ export default {
       {
         test: /\.svg$/,
         issuer: {
-          test: /\.(scss|css)$/
+          test: /\.(scss|css)$/,
         },
-        use: ["url-loader"]
+        use: ['url-loader'],
       },
       {
         test: /\.svg$/,
         issuer: {
-          test: /\.(jsx|js|tsx|ts|mdx)$/
+          test: /\.(jsx|js|tsx|ts|mdx)$/,
         },
         use: [
           {
-            loader: "@svgr/webpack",
+            loader: '@svgr/webpack',
             options: {
               svgoConfig: {
                 plugins: {
-                  removeViewBox: false
-                }
-              }
-            }
+                  removeViewBox: false,
+                },
+              },
+            },
           },
-          "file-loader"
-        ]
+          'file-loader',
+        ],
       },
       {
         test: /\.(gif|png|jpe?g)$/i,
         loaders: [
-          "file-loader",
+          'file-loader',
           {
-            loader: "image-webpack-loader",
+            loader: 'image-webpack-loader',
             query: {
               mozjpeg: {
-                progressive: true
-              }
-            }
-          }
-        ]
+                progressive: true,
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.(woff|eot|otf|woff2|ttf)$/,
-        loaders: ["file-loader"]
-      }
-    ]
+        loaders: ['file-loader'],
+      },
+    ],
   },
 
   plugins: [
     new WebpackCleanupPlugin(),
     new HtmlWebpackPlugin({
-      template: resolve(projectDir, "public/index.html")
+      template: resolve(projectDir, 'public/index.html'),
     }),
     new webpack.NamedModulesPlugin(),
     new CopyWebpackPlugin([
-      { from: resolve(projectDir, "public"), ignore: ["index.html"] }
-    ])
-  ]
+      { from: resolve(projectDir, 'public'), ignore: ['index.html'] },
+    ]),
+  ],
 };
