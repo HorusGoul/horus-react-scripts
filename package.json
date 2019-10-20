@@ -8,13 +8,6 @@
   "bin": {
     "horus-react-scripts": "./bin/index.js"
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react",
-      "@babel/preset-typescript"
-    ]
-  },
   "dependencies": {
     "@babel/core": "^7.6.4",
     "@babel/polyfill": "^7.6.0",
@@ -28,9 +21,11 @@
     "@types/workbox-sw": "^4.2.1",
     "autoprefixer": "^9.6.5",
     "babel-loader": "^8.0.6",
+    "copy-dir": "^1.2.0",
     "copy-template-dir": "^1.4.0",
     "copy-webpack-plugin": "^5.0.4",
     "core-js": "^3.3.2",
+    "cross-env": "^6.0.3",
     "cross-spawn": "^7.0.1",
     "css-loader": "^3.2.0",
     "file-loader": "^4.2.0",

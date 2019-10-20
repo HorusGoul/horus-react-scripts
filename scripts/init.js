@@ -9,6 +9,7 @@ const { resolve } = require('path');
 const spawn = require('cross-spawn');
 
 const templatesPath = resolve(__dirname, '../templates');
+const packageJson = require(resolve(__dirname, '../package.json'));
 
 module.exports = async function(
   appPath,
@@ -25,7 +26,7 @@ module.exports = async function(
       appPath,
       {
         appName,
-        scriptsName: 'horus-react-scripts',
+        scriptsName: packageJson.name,
         scriptsVersion: 'file:../',
       },
       (err, createdFiles) => (err ? onReject(err) : onResolve(createdFiles)),
