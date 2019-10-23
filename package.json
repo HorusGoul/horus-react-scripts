@@ -9,7 +9,7 @@
     "horus-react-scripts": "./bin/index.js"
   },
   "repository": {
-    "url": "https://github.com/HorusGoul/horus-react-scripts"
+    "url": "https://github.com/HorusGoul/horus-react-scripts.git"
   },
   "files": [
     "bin",

@@ -19,3 +19,4 @@ jobs:
         env:
           NPM_TOKEN: ${{secrets.npm_token}}
           GH_TOKEN: ${{secrets.gh_token}}
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
