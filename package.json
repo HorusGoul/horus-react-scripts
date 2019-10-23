@@ -1,12 +1,15 @@
 {
   "name": "horus-react-scripts",
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.0-development",
   "description": "React Scripts",
   "author": "Horus Lugo <horusgoul@gmail.com>",
   "license": "MIT",
   "private": false,
   "bin": {
     "horus-react-scripts": "./bin/index.js"
+  },
+  "repository": {
+    "url": "https://github.com/HorusGoul/horus-react-scripts"
   },
   "files": [
     "bin",
@@ -20,7 +23,8 @@
   "scripts": {
     "precreate-test-app": "cross-env HORUS_RS_LOCATION=./",
     "create-test-app": "create-react-app --scripts-version file:$HORUS_RS_LOCATION test-app",
-    "commit": "yarn exec git-cz"
+    "commit": "yarn exec git-cz",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "@babel/core": "^7.6.4",
@@ -89,7 +93,8 @@
   "devDependencies": {
     "commitizen": "^4.0.3",
     "create-react-app": "^3.2.0",
-    "cz-conventional-changelog": "3.0.2"
+    "cz-conventional-changelog": "3.0.2",
+    "semantic-release": "^15.13.27"
   },
   "config": {
     "commitizen": {
