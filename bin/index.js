@@ -6,12 +6,14 @@ const copyDir = require('copy-dir');
 const dotenvConfig = require('dotenv');
 dotenvConfig.config();
 
-const [task] = process.argv.slice(2);
+const [task, ...restArgs] = process.argv.slice(2);
 
 const projectDir = resolve(process.cwd());
 const configDir = resolve(__dirname, '../config');
 
 const webpackConfig = resolve(configDir, `./webpack.config.entry.js`);
+const jestConfig = resolve(projectDir, './jest.config.js');
+const babelConfig = resolve(configDir, './babel.config.js');
 
 let result;
 
@@ -71,6 +73,18 @@ switch (task) {
     result = spawn.sync('yarn', ['--cwd', projectDir], {
       stdio: 'inherit',
     });
+    break;
+  }
+  case 'test': {
+    process.env.RS_BABEL_CONFIG_LOCATION = babelConfig;
+
+    result = spawn.sync(
+      'jest',
+      ['--config', jestConfig, '--rootDir', projectDir, ...restArgs],
+      {
+        stdio: 'inherit',
+      },
+    );
   }
 }
 

@@ -28,9 +28,20 @@
     ],
     "prettier/prettier": "warn"
   },
-  "parserOptions": {
-    "project": ["./tsconfig.json", "./src/workers/tsconfig.json"]
-  },
+  "overrides": [
+    {
+      "files": ["src/**/*.tsx", "src/**/*.ts", "src/**/*.js", "src/**/*.jsx"],
+      "parserOptions": {
+        "project": ["./tsconfig.json", "./src/workers/tsconfig.json"]
+      }
+    },
+    {
+      "files": ["__jest__/**/*.js", "config/**/*.js", "*.config.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    }
+  ],
   "settings": {
     "react": {
       "version": "detect"
