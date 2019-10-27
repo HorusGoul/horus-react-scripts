@@ -59,6 +59,7 @@ switch (task) {
     Object.assign(packageJson.scripts, {
       start: `webpack-dev-server --config ./config/webpack.config.entry.js --progress --env=dev`,
       build: `cross-env NODE_ENV=production webpack --config ./config/webpack.config.entry.js --progress --env=production`,
+      test: `jest --config ./jest.config.js`,
     });
 
     // Remove the 'eject' script
