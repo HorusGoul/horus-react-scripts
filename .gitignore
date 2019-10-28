@@ -84,7 +84,6 @@ typings/
 
 # gatsby files
 .cache/
-public
 
 # vuepress build output
 .vuepress/dist
@@ -102,3 +101,5 @@ public
 .tern-port
 
 test-app
+.history
+.vscode
