@@ -12,7 +12,8 @@ const commandExists = require('command-exists');
 const templatesPath = resolve(__dirname, '../templates');
 const packageJson = require(resolve(__dirname, '../package.json'));
 
-const scriptsPath = resolve(process.env.HORUS_RS_LOCATION || './');
+const rsLocation = process.env.HORUS_RS_LOCATION;
+const scriptsPath = rsLocation ? resolve(rsLocation) : null;
 
 module.exports = async function(
   appPath,
