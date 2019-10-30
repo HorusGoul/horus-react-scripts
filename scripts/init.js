@@ -24,16 +24,19 @@ module.exports = async function(
 ) {
   template = template || 'default';
 
+  const scriptsName = packageJson.name;
+  const scriptsVersion = scriptsPath
+    ? `file:${scriptsPath}`
+    : `^${packageJson.version}`;
+
   await new Promise((onResolve, onReject) =>
     copy(
       resolve(templatesPath, template),
       appPath,
       {
         appName,
-        scriptsName: packageJson.name,
-        scriptsVersion: scriptsPath
-          ? `file:${scriptsPath}`
-          : `^${packageJson.version}`,
+        scriptsName,
+        scriptsVersion,
       },
       (err, createdFiles) => (err ? onReject(err) : onResolve(createdFiles)),
     ),
@@ -57,6 +60,11 @@ module.exports = async function(
 
   if (scriptsPath) {
     spawn.sync('yarn', ['link', packageJson.name], {
+      cwd: appPath,
+      stdio: 'ignore',
+    });
+  } else {
+    spawn.sync('yarn', ['add', `${scriptsName}@^${scriptsVersion}`], {
       cwd: appPath,
       stdio: 'ignore',
     });
