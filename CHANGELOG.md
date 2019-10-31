@@ -1,0 +1,1 @@
+## [1.1.3](https://github.com/HorusGoul/horus-react-scripts/compare/v1.1.2...v1.1.3) (2019-10-31)
