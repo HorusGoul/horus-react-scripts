@@ -11,6 +11,7 @@ module.exports = {
           { type: 'fix', release: 'patch' },
           { type: 'perf', release: 'patch' },
           { type: 'improvement', release: 'patch' },
+          { type: 'chore', scope: 'deps', release: 'patch' },
         ],
       },
     ],
