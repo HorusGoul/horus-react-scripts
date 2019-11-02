@@ -29,6 +29,9 @@ module.exports = async function(
     ? `file:${scriptsPath}`
     : `^${packageJson.version}`;
 
+  const reactVersion = packageJson.peerDependencies.react;
+  const reactDOMVersion = packageJson.peerDependencies['react-dom'];
+
   await new Promise((onResolve, onReject) =>
     copy(
       resolve(templatesPath, template),
@@ -37,6 +40,8 @@ module.exports = async function(
         appName,
         scriptsName,
         scriptsVersion,
+        reactVersion,
+        reactDOMVersion,
       },
       (err, createdFiles) => (err ? onReject(err) : onResolve(createdFiles)),
     ),
