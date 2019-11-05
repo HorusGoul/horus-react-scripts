@@ -6,6 +6,11 @@ import commonConfig from './webpack.common';
 
 const context = commonConfig.context;
 
+// On windows, `context` uses `\` as path separator, we must
+// replace it with `/` as it's what it's actually used in code.
+const prependDataContext =
+  process.platform === 'win32' ? context.replace(/\\/g, '') : context;
+
 export default function createStyleRule(env = 'dev') {
   const isProduction = env === 'production';
 
@@ -46,10 +51,10 @@ export default function createStyleRule(env = 'dev') {
         loader: 'sass-loader',
         options: {
           prependData: `
-            @import '${context}/styles/variables.scss';
-            @import '${context}/styles/functions.scss';
-            @import '${context}/styles/responsive.scss';
-            @import '${context}/styles/transitions.scss';
+            @import '${prependDataContext}/styles/variables.scss';
+            @import '${prependDataContext}/styles/functions.scss';
+            @import '${prependDataContext}/styles/responsive.scss';
+            @import '${prependDataContext}/styles/transitions.scss';
           `,
           sourceMap,
           sassOptions: {
