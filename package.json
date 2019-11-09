@@ -15,7 +15,8 @@
     "bin",
     "config",
     "scripts",
-    "templates"
+    "templates",
+    "addons"
   ],
   "bugs": {
     "url": "https://github.com/HorusGoul/horus-react-scripts/issues"
