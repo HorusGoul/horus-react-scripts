@@ -43,7 +43,7 @@
     "@types/webpack": "^4.39.8",
     "@types/workbox-sw": "^4.2.1",
     "@typescript-eslint/eslint-plugin": "^2.7.0",
-    "@typescript-eslint/parser": "^2.6.1",
+    "@typescript-eslint/parser": "^2.7.0",
     "autoprefixer": "^9.7.1",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
