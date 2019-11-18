@@ -108,7 +108,7 @@
     "commitizen": "^4.0.3",
     "create-react-app": "^3.2.0",
     "cz-conventional-changelog": "3.0.2",
-    "semantic-release": "^15.13.30"
+    "semantic-release": "^15.13.31"
   },
   "config": {
     "commitizen": {
