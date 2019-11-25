@@ -25,7 +25,8 @@
     "precreate-test-app": "cross-env HORUS_RS_LOCATION=./",
     "create-test-app": "create-react-app --scripts-version file:$HORUS_RS_LOCATION test-app",
     "commit": "yarn exec git-cz",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "test": "jest ./test/*.test.js"
   },
   "dependencies": {
     "@babel/core": "^7.7.2",
@@ -108,6 +109,8 @@
     "commitizen": "^4.0.3",
     "create-react-app": "^3.2.0",
     "cz-conventional-changelog": "3.0.2",
+    "get-port-sync": "^1.0.0",
+    "rimraf": "^3.0.0",
     "semantic-release": "^15.13.31"
   },
   "config": {
