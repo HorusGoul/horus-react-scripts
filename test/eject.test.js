@@ -44,7 +44,7 @@ describe('Eject', () => {
       if (success || failure) {
         expect(success).toBe(true);
         expect(failure).toBe(false);
-        start.kill(-start.pid);
+        process.kill(-start.pid);
       }
     });
 
