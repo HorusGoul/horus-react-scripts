@@ -103,3 +103,5 @@ typings/
 test-app
 .history
 .vscode
+
+test/test-app-*
