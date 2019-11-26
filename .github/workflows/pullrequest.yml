@@ -12,5 +12,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - name: e2e Tests
-        run: yarn && yarn test
+      - name: Install dependencies
+        run: yarn
+      - name: Run yarn test
+        run: yarn test

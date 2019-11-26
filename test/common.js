@@ -1,7 +1,7 @@
 const spawn = require('cross-spawn');
 const { resolve } = require('path');
 const rimraf = require('rimraf');
-const getPortSync = require('get-port-sync');
+const getPort = require('get-port');
 
 function createSandbox(name = 'sandbox') {
   const projectDir = resolve(__dirname, '..');
@@ -38,7 +38,7 @@ function createSandbox(name = 'sandbox') {
     projectDir,
     testAppDir,
     ejectTestApp,
-    testAppPort: getPortSync(),
+    testAppPort: getPort({ from: 1024, to: 65535 }),
   };
 }
 

@@ -27,12 +27,12 @@ describe('Eject', () => {
     expect(ejectResult.status).toBe(0);
   });
 
-  test('it should run the app', done => {
+  test('it should run the app', async done => {
     expect.assertions(2);
     const start = spawn.spawn('yarn', ['start'], {
       cwd: testAppDir,
       env: {
-        PORT: testAppPort,
+        PORT: await testAppPort,
       },
     });
 

@@ -109,7 +109,7 @@
     "commitizen": "^4.0.3",
     "create-react-app": "^3.2.0",
     "cz-conventional-changelog": "3.0.2",
-    "get-port-sync": "^1.0.0",
+    "get-port": "^5.0.0",
     "rimraf": "^3.0.0",
     "semantic-release": "^15.13.31"
   },
