@@ -34,6 +34,7 @@ describe('Eject', () => {
       env: {
         PORT: await testAppPort,
       },
+      detached: true,
     });
 
     start.stdout.on('data', data => {
@@ -43,7 +44,7 @@ describe('Eject', () => {
       if (success || failure) {
         expect(success).toBe(true);
         expect(failure).toBe(false);
-        start.kill();
+        start.kill(-start.pid);
       }
     });
 
