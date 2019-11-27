@@ -53,7 +53,7 @@
     "copy-dir": "^1.2.0",
     "copy-template-dir": "^1.4.0",
     "copy-webpack-plugin": "^5.0.5",
-    "core-js": "^3.4.4",
+    "core-js": "^3.4.5",
     "cross-env": "^6.0.3",
     "cross-spawn": "^7.0.1",
     "css-loader": "^3.2.0",
