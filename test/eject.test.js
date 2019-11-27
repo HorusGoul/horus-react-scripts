@@ -5,7 +5,7 @@ const {
   createTestApp,
   testAppDir,
   ejectTestApp,
-  testAppPort,
+  getTestAppPort,
 } = createSandbox('eject');
 
 jest.setTimeout(50000);
@@ -32,14 +32,15 @@ describe('Eject', () => {
     const start = spawn.spawn('yarn', ['start'], {
       cwd: testAppDir,
       env: {
-        PORT: await testAppPort,
+        PORT: await testAppPort(),
       },
       detached: true,
     });
 
     start.stdout.on('data', data => {
-      const success = data.includes('Compiled successfully.');
-      const failure = data.includes('Command failed with exit code');
+      const dataString = data.toString();
+      const success = dataString.includes('Compiled successfully.');
+      const failure = dataString.includes('Command failed with exit code');
 
       if (success || failure) {
         expect(success).toBe(true);
@@ -48,9 +49,9 @@ describe('Eject', () => {
       }
     });
 
-    start.on('exit', () => {
-      done();
-    });
+    start.on('disconnect', () => done());
+    start.on('exit', () => done());
+    start.on('close', () => done());
   });
 
   test('it should build the app', () => {

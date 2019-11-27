@@ -38,7 +38,7 @@ function createSandbox(name = 'sandbox') {
     projectDir,
     testAppDir,
     ejectTestApp,
-    testAppPort: getPort({ from: 1024, to: 65535 }),
+    getTestAppPort: () => getPort({ from: 1024, to: 65535 }),
   };
 }
 
