@@ -14,8 +14,12 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: yarn
-      - run: yarn semantic-release
+      - name: Install dependencies
+        run: yarn
+      - name: Run tests
+        run: yarn test
+      - name: Semantic Release
+        run: yarn semantic-release
         env:
           NPM_TOKEN: ${{secrets.npm_token}}
           GH_TOKEN: ${{secrets.gh_token}}

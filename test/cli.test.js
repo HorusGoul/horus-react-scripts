@@ -1,8 +1,11 @@
 const spawn = require('cross-spawn');
 const { createSandbox } = require('./common');
-const { deleteTestApp, createTestApp, testAppDir, testAppPort } = createSandbox(
-  'cli',
-);
+const {
+  deleteTestApp,
+  createTestApp,
+  testAppDir,
+  getTestAppPort,
+} = createSandbox('cli');
 
 jest.setTimeout(50000);
 
@@ -23,17 +26,19 @@ describe('CLI', () => {
 
   test('it should run the app', async done => {
     expect.assertions(2);
+
     const start = spawn.spawn('yarn', ['start'], {
       cwd: testAppDir,
       env: {
-        PORT: await testAppPort,
+        PORT: await getTestAppPort(),
       },
       detached: true,
     });
 
     start.stdout.on('data', data => {
-      const success = data.includes('Compiled successfully.');
-      const failure = data.includes('Command failed with exit code');
+      const dataString = data.toString();
+      const success = dataString.includes('Compiled successfully.');
+      const failure = dataString.includes('Command failed with exit code');
 
       if (success || failure) {
         expect(success).toBe(true);
@@ -42,9 +47,9 @@ describe('CLI', () => {
       }
     });
 
-    start.on('exit', () => {
-      done();
-    });
+    start.on('disconnect', () => done());
+    start.on('exit', () => done());
+    start.on('close', () => done());
   });
 
   test('it should build the app', () => {
