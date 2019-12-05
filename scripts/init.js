@@ -23,6 +23,11 @@ module.exports = async function(
   template,
 ) {
   template = template || 'default';
+  template = template.replace('cra-template-', '');
+
+  if (template === 'cra-template') {
+    template = 'default';
+  }
 
   const scriptsName = packageJson.name;
   const scriptsVersion = scriptsPath
