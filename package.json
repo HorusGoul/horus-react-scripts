@@ -52,7 +52,7 @@
     "command-exists": "^1.2.8",
     "copy-dir": "^1.2.0",
     "copy-template-dir": "^1.4.0",
-    "copy-webpack-plugin": "^5.1.0",
+    "copy-webpack-plugin": "^5.1.1",
     "core-js": "^3.5.0",
     "cross-env": "^6.0.3",
     "cross-spawn": "^7.0.1",
