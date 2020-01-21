@@ -45,7 +45,7 @@
     "@types/workbox-sw": "^4.3.0",
     "@typescript-eslint/eslint-plugin": "^2.16.0",
     "@typescript-eslint/parser": "^2.16.0",
-    "autoprefixer": "^9.7.3",
+    "autoprefixer": "^9.7.4",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "camelcase": "^5.3.1",
