@@ -105,7 +105,7 @@
     "@semantic-release/commit-analyzer": "^6.3.3",
     "@semantic-release/github": "^5.5.8",
     "@semantic-release/npm": "^5.3.5",
-    "@semantic-release/release-notes-generator": "^7.3.5",
+    "@semantic-release/release-notes-generator": "^9.0.0",
     "commitizen": "^4.0.3",
     "create-react-app": "^3.3.1",
     "cz-conventional-changelog": "3.0.2",
