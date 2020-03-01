@@ -46,7 +46,7 @@
     "@typescript-eslint/eslint-plugin": "^2.21.0",
     "@typescript-eslint/parser": "^2.21.0",
     "autoprefixer": "^9.7.4",
-    "babel-jest": "^24.9.0",
+    "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.6",
     "camelcase": "^5.3.1",
     "command-exists": "^1.2.8",
