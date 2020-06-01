@@ -1862,10 +1862,10 @@
   dependencies:
     "@types/workbox-routing" "*"
 
-"@types/workbox-sw@^4.3.0":
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/@types/workbox-sw/-/workbox-sw-4.3.0.tgz#9eaf2acf41b831729337aaa6e596c81cd008cf49"
-  integrity sha512-PX4CQq+MH1ET94o6AE5GsLQ57WznWFC8eoXYIRUKv4vSFQFRDmlSRRonyFHlcdNhE9skKJBjxapUt4PPit0L1g==
+"@types/workbox-sw@^4.3.1":
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/@types/workbox-sw/-/workbox-sw-4.3.1.tgz#93d8f95d352c63614debfbe3ac46d34bf2c60089"
+  integrity sha512-QCO7qBZLKOauTTUqQEwsMMsV0A2Sv4oDaIqu6B19NHTjMERQrKdZXAqGHrpkHtNPmXsORSig1woQxqQmt6AAuA==
   dependencies:
     "@types/workbox-background-sync" "*"
     "@types/workbox-broadcast-update" "*"
