@@ -33,7 +33,7 @@
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.10.1",
     "@babel/preset-typescript": "^7.9.0",
-    "@babel/register": "^7.9.0",
+    "@babel/register": "^7.10.1",
     "@hot-loader/react-dom": "^16.13.0",
     "@nice-labs/typed-css-modules": "^1.2.1",
     "@svgr/webpack": "^5.4.0",
