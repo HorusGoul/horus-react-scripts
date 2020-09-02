@@ -78,7 +78,7 @@
     "node-sass": "^4.14.1",
     "postcss-loader": "^3.0.0",
     "postcss-pxtorem": "^4.0.1",
-    "prettier": "^1.19.1",
+    "prettier": "^2.1.1",
     "react-hot-loader": "^4.12.21",
     "regenerator-runtime": "^0.13.7",
     "sass-loader": "^8.0.2",
