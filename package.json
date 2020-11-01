@@ -106,7 +106,7 @@
     "@semantic-release/github": "^7.1.1",
     "@semantic-release/npm": "^7.0.6",
     "@semantic-release/release-notes-generator": "^9.0.1",
-    "commitizen": "^4.2.1",
+    "commitizen": "^4.2.2",
     "create-react-app": "^3.4.1",
     "cz-conventional-changelog": "3.0.2",
     "get-port": "^5.1.1",
