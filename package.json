@@ -108,7 +108,7 @@
     "@semantic-release/release-notes-generator": "^9.0.1",
     "commitizen": "^4.2.2",
     "create-react-app": "^3.4.1",
-    "cz-conventional-changelog": "3.0.2",
+    "cz-conventional-changelog": "3.3.0",
     "get-port": "^5.1.1",
     "rimraf": "^3.0.2",
     "semantic-release": "^17.2.2"
