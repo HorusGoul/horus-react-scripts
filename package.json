@@ -91,7 +91,7 @@
     "webpack-bundle-analyzer": "^3.9.0",
     "webpack-chunk-hash": "^0.6.0",
     "webpack-cleanup-plugin": "^0.5.1",
-    "webpack-cli": "^3.3.12",
+    "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^4.2.2",
     "workbox-webpack-plugin": "^5.1.4"
